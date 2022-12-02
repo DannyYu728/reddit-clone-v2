@@ -10,8 +10,8 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://betterreddit-backend-production.up.railway.app/"
-      : "https://betterreddit-backend-production.up.railway.app/",
+      ? "https://web-production-8975.up.railway.app/"
+      : "https://web-production-8975.up.railway.app/",
 });
 
 // if (token) {
