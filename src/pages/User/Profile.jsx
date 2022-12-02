@@ -13,7 +13,6 @@ function Profile({ theme }) {
   };
 
   return (
-    <div className="user-pg">
       <div className="profile">
         <ul className="profile-nav">
           {tabs.map((link, index) => {
@@ -36,7 +35,6 @@ function Profile({ theme }) {
           {pcToggle ==="Posts" && <ProfilePosts />}
         </div>
       </div>
-    </div>
   );
 }
 

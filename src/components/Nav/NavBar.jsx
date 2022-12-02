@@ -78,7 +78,7 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
           }
         >
           <span className={`signed-in-text signed-in-text-${theme}`}>
-            Signed in as:{" "}
+            Bread Master:{" "}
           </span>
           <Link to="/profile" className="logged-in-username">
             {user.username}

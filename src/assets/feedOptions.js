@@ -17,13 +17,13 @@ const feed = [
   {
     index: 1,
     params: "/posts/all",
-    title: "Popular",
+    title: "Delicious Goodies",
     icon: <GiPartyPopper size={25} className="aside-icon" />
   },
   {
     index: 2,
     params: "/posts/all",
-    title: "All",
+    title: "Fresh Bakes",
     icon: <GiBalloonDog size={25} className="aside-icon" />
   },
   {

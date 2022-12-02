@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   margin-top: var(--app-height-variable);
+  background-color: rgba(255, 255, 255, 0.9)
 }
 
 .aside-dark {
@@ -22,6 +23,7 @@
 .aside-link {
   margin: 0;
   padding: 0;
+  color: #de42cc;
 }
 
 .aside-link-wrapper:first-child {
@@ -38,7 +40,7 @@
 }
 
 .aside-wrapper-text {
-  color: rgba(100, 100, 100, 0.75);
+  color: #725671;
 }
 
 .aside-link-container {
@@ -67,16 +69,15 @@
 }
 
 .aside-link-dark {
-  color: rgb(230, 204, 178);
+  color: #fc5a8d;
 }
 
 .aside-wrapper-text-dark {
-  color: rgb(230, 204, 178);
+  color: #fc5a8d;
 }
 
 a p {
   box-shadow: inset 0 0 0 0 rgba(127, 85, 57, 0.75);
-  color: black;
   margin: 0 -0.25rem;
   padding: 0 0.25rem;
   transition: color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -84,7 +85,7 @@ a p {
 
 a:hover p {
   box-shadow: inset 100px 0 0 0 rgba(156, 102, 68, 0.75);
-  color: white;
+  color: #fc5a8d;
 }
 
 @media only screen and (max-width: 1000px) and (min-width: 576px) {

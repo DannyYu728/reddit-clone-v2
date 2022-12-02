@@ -1,15 +1,24 @@
 import "./Signup.css";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { signUp } from "../../services/user";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { dispatch } = useAuthContext();
+  const { dispatch, user } = useAuthContext();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const confirmRef = useRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkSignIn = () => {
+      if (user) {
+        navigate("/", { replace: true });
+      }
+    };
+    checkSignIn();
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

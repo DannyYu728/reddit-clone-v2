@@ -94,3 +94,12 @@ export const favortie = async (id) => {
     throw error;
   }
 };
+
+export const updateProfile = async (file) => {
+  try {
+    const res = await api.post("profile-update/", file);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};

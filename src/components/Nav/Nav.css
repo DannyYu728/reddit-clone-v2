@@ -61,6 +61,7 @@
 .nav-icon {
   margin-right: 10px;
   cursor: pointer;
+  color: #fc5a8d;
 }
 
 .dropdown-toggle::after {
@@ -69,6 +70,7 @@
 
 .dropdown-text {
   margin: 0;
+  color: #fc5a8d;
 }
 
 .smaller-input {
@@ -125,6 +127,15 @@
   }
 }
 
+.navbar-text a {
+  color: #fc5a8d;
+  font-size: 1.2rem;
+}
+
+.btn-outline-secondary{
+  color: #fc5a8d;
+  border-color: #fc5a8d;
+}
 @media screen and (min-width: 576px) {
   .nav-icons-container {
     margin-left: 15px;

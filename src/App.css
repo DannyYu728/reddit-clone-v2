@@ -3,6 +3,10 @@
   --aside-width-variable: 16%;
 }
 
+body {
+  background: url(./assets/zbread-transparent.png);
+}
+
 .App {
   font-family: var(
     --font-family,
@@ -43,3 +47,4 @@
     width: 100%;
   }
 }
+

@@ -15,6 +15,9 @@ function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!user) {
+      navigate("/login", { replace: true });
+    }
     try {
       const form = {
         owner: user.id,
@@ -40,7 +43,7 @@ function CreatePost() {
   return (
     <div className="entire-page">
       <div className="create-post-container">
-        <h3 className="create-a-post">Create a post</h3>
+        <h3 className="create-a-post">Bake Some Goods</h3>
         <hr id="line"></hr>
         <form onSubmit={handleSubmit} className="post-details">
           <div className="input-flex">
@@ -73,14 +76,18 @@ function CreatePost() {
               placeholder="Category (optional)"
             >
               {categoryOptions.map((option, index) => {
-                return <option value={option.category} key={index}>{option.title}</option>;
+                return (
+                  <option value={option.category} key={index}>
+                    {option.title}
+                  </option>
+                );
               })}
             </select>
           </div>
           <hr id="line"></hr>
           <div className="post-button-flex">
             <button type="submit" id="post-button">
-              Post
+              Fresh Bake
             </button>
           </div>
         </form>
@@ -89,11 +96,16 @@ function CreatePost() {
       <div className="rules-container">
         <h5 className="posting-to-breddit">Posting to Breddit</h5>
         <ol className="rules-list">
-          <li id="list">Remember the human</li>
-          <li id="list">Behave like you would in real life</li>
-          <li id="list">Look for the original source of content</li>
-          <li id="list">Search for duplicates before posting</li>
-          <li id="list">Read the community rules</li>
+          <li id="list">ASSEMBLE BREAD INGREDIENTS</li>
+          <li id="list">DISSOLVE THE YEAST AND ACTIVATE IT BY PROOFING</li>
+          <li id="list">ADD REMAINING INGREDIENTS AND MIX</li>
+          <li id="list">KNEAD THE BREAD</li>
+          <li id="list">FIRST RISE</li>
+          <li id="list">PUNCH DOUGH AND SHAPE IT</li>
+          <li id="list">SECOND RISE</li>
+          <li id="list">BAKE THE BREAD</li>
+          <li id="list">COOL THE BREAD</li>
+          <li id="list">SHARE THE BREAD</li>
         </ol>
         <div className="etiquitte">
           Please be mindful of breddit's content policy and practice good

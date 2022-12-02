@@ -1,9 +1,13 @@
+.overview {
+  display: flex;
+  width: 100%;
+  
+}
+
 .overview-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 3rem;
-  margin: 0 1rem 0 1rem;
 }
 
 .banner {
@@ -20,6 +24,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .avatar {
@@ -37,7 +42,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #fc5a8d;
+  text-shadow:  3px 3px 10px #fc5a8d;;
 }
 
 .overview-center-right {
@@ -66,13 +74,37 @@
   color: #dcb895;
 }
 
+.new-post {
+  background: url('../../../assets/oven.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+}
 .post-button {
-  width: 50%;
+  width: 100%;
   border-radius: 1rem;
-  background-color: #af896a;
   color: white;
   font-weight: 900;
-  margin-top: 10px;
+  text-shadow: 3px 3px 5px black;
+}
+
+.profileBtn {
+  text-align: center;
+  width: 10rem;
+  color: #de42cc;
+  font-weight: bolder;
+  background-image: url(../../../assets/breadbtn.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-shadow: 1px 1px 2px black;
+
 }
 
 .overview-left-btn-container {
@@ -81,38 +113,28 @@
   justify-content: space-around;
 }
 
-@media screen and (max-width: 976px) {
-  .overview-container {
-    gap: 0rem;
-    margin: 0;
-    font-size: 0.5rem;
-  }
-  .banner {
-    border: 0px;
-    height: 0;
-    width: 0;
-  }
+.breader-container {
+  height: 400px;
 }
-.box-canvas{
+
+.box-canvas {
   position: relative;
-  margin: auto;
-  display: block;
-  margin-top: 8%;
-  margin-bottom: 8%;
   width: 600px;
   height:600px;
   background: transparent;
 }
 
-.toasterName {
+.breaderName {
+  text-align: center;
 color: #7e553c;
 font-weight: bold;
 font-family: fantasy;
 font-size: xxx-large;
 padding-top: 25%;
+text-shadow: 3px 3px 5px white;
 }
 
-.toaster {
+.breader {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -122,6 +144,7 @@ padding-top: 25%;
   background: rgb(185, 182, 182);
   border-radius: 25% 25% 10% 10%;
   box-shadow: inset 0 0 30px rgb(62, 60, 60);
+  border-bottom: 20px solid #7e553c;
 }
 
 
@@ -142,7 +165,7 @@ padding-top: 25%;
      bottom: 90px;
   }
 }
-.toaster::after {
+.breader::after {
   content: '';
   position: absolute;
   right: -30px;
@@ -154,7 +177,7 @@ padding-top: 25%;
   animation: handlePop 3s infinite;
 }
 
-@keyframes toastPop {
+@keyframes breadPop {
   0% {
     top: 150px;
   }
@@ -176,18 +199,17 @@ padding-top: 25%;
   }
 }
 
-
-.toast {
+.bread {
   position: absolute;
   left: 190px;
   top: 150px;
-  width: 100px;
+  width: 200px;
   height: 300px;
   color: #7e553c;
-  animation: toastPop 2s infinite;
+  animation: breadPop 3s infinite;
 }
 
-.toast::after {
+.bread::after {
   content: '';
   position: absolute;
   left: 100px;
@@ -195,31 +217,33 @@ padding-top: 25%;
   width: 0px;
   height: 0px;
   background: rgba(202, 125, 37, 0.6);
-  box-shadow: 0 0 45px 75px black;
+  box-shadow: 0 0 45px 75px #CA7D25;
 }
 
-.toast-inner {
+.bread-inner {
   position: absolute;
   width: 198px;
   height: 180px;
   top: 50px;
   left: 1px;
   border: 5px solid;
+  background: #E3D2AD;
+  border: 5px solid #CA7D25;
   border-top: none;
 }
 
-.toast-top {
+.bread-top {
   position: absolute;
-  width: 102px;
+  width: 98px;
   height: 100px;
   border-radius: 50%;
-  background: rgb(85, 183, 152);
-  border: 5px solid #7e553c;
-  border-top: 8px solid #5d3f2c;
+  background: #E3D2AD;
+  border: 5px solid #CA7D25;
+  border-top: 8px solid #CA7D25;;
   border-right: none;
 }
 
-.toast-top::after {
+.bread-top::after {
   content: '';
   position: absolute;
   right: -103px;
@@ -227,27 +251,24 @@ padding-top: 25%;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #7e553c;
-  border: 5px solid #7e553c;
-  border-top: 8px solid #5d3f2c;
+  background: #E3D2AD;
+  border: 5px solid #CA7D25;
+  border-top: 8px solid #CA7D25;
   border-left: none;
 }
- .toaster-feet {
-  position: absolute;
-  top: 400px;
-  left: 175px;
-  background: #7e553c;
-  width: 25px;
-  height: 10px;
-  border-radius: 0 0 50% 50%;
+ 
+@media screen and (max-width: 976px) {
+  .breader-container {
+    display: none;
+  }
+  .overview {
+    gap: 0rem;
+    margin: 0;
+    font-size: 0.5rem;
+  }
+  .banner {
+    border: 0px;
+    height: 0;
+    width: 0;
+  }
 }
-
-.toaster-feet::before {
-  content: '';
-  position: absolute;
-  left: 225px;
-  background: #7e553c;
-  width: 25px;
-  height: 10px;
-  border-radius: 0 0 50% 50%;
- }; 

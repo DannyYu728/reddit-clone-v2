@@ -1,9 +1,9 @@
 import {useNavigate} from "react-router-dom";
 import {BsArrowUpSquare} from "react-icons/bs";
-import {likePost, unLikePost} from "../../services/Posts.js";
+import {likePost} from "../../services/Posts.js";
 import {useAuthContext} from "../../hooks/useAuthContext";
 import "./PostContainer.css";
-import ReactTimeAgo from "react-time-ago";
+import toastie from "../../assets/9.png";
 
 function PostContainer(props) {
   const {post} = props;
@@ -16,7 +16,8 @@ function PostContainer(props) {
   };
 
   const like = async () => {
-    const res = await likePost({id: post.id});
+    const res = await likePost({ id: post.id });
+    return res
   };
 
   if (!post) return <h1>Loading...</h1>;
@@ -25,11 +26,12 @@ function PostContainer(props) {
     <div className="individual-post-container">
       <div className="vote-post-flexbox">
         <div className="vote-container">
-          <button id="up-arrow">
-            <BsArrowUpSquare />
+          <button id="up-arrow" onClick={like}>
+          <img src={toastie} className="toastie"/>
           </button>
-          <p className="give-bread" onClick={like}>
-            Give Bread
+          999
+          <p className="give-bread">
+            Bites
           </p>
         </div>
 
@@ -38,8 +40,8 @@ function PostContainer(props) {
           onClick={() => handleClick(post.id)}
         >
           <p className="posted-by">
-            <span id="category-name">b/{post.category}</span> • Posted by{" "}
-            {post.owner} <ReactTimeAgo date={post.created_at} locale="en-US" />
+            <span id="category-name">b/{post.category}</span> • Baked by{" "}
+            {post.owner} 69mins ago
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
@@ -50,11 +52,11 @@ function PostContainer(props) {
       </div>
       <div className="view-comments-flexbox">
         <button className="view-comments" onClick={() => handleClick(post.id)}>
-          View Comments
+          View the Spread
         </button>
       </div>
 
-      <img src={post.link.thumbnail} />
+      {/* <img src={post.link.thumbnail} /> */}
     </div>
   );
 }

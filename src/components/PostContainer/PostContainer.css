@@ -6,6 +6,12 @@
   padding: 10px 5px;
   background-color: #DDB892;
 }
+
+
+.toastie {
+  width: 2.5rem;
+  height: 2.5rem;
+}
   
   .vote-post-flexbox {
     display: flex;
