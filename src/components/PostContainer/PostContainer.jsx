@@ -18,6 +18,7 @@ function PostContainer(props) {
   const like = async () => {
     const res = await likePost({ id: post.id });
     return res
+
   };
 
   if (!post) return <h1>Loading...</h1>;
