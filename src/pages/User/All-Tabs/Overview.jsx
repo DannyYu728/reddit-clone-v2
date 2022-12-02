@@ -1,6 +1,7 @@
 import "./Overview.css";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { updateProfile } from "../../../services/user";
+import { useNavigate, Link } from "react-router-dom";
 
 function Overview({ toggle, theme }) {
   const { user } = useAuthContext();
@@ -40,25 +41,22 @@ function Overview({ toggle, theme }) {
             <img src={user.avatar} alt="user avatar" className="avatar" />
             {user.username.toUpperCase()}
             <div className="overview-left-btn-container">
-              <div className="profileBtn">Banner</div>
-              <div className="profileBtn"> Avatar </div>
-              {/* <form onSubmit={handleSubmit}>
-                <input type="file" id="myfile" name="uploadFile"></input>
-                <button className="signup-submit" type="submit">
-                  UPDATE
-                </button>
-              </form> */}
+              <div className="profileBtn">Avatar</div>
+              <Link to="/changepassword/">
+                <div className="profileBtn">Password </div>
+              </Link>
             </div>
           </div>
           <div className="new-post">
-          <div className="post-button">Bake It</div>
-        </div>
+            <Link to="/create-post">
+              <div className="post-button">Bake It</div>
+            </Link>
+          </div>
           <div className="overview-center-right">
             <p className="overview-tag">Bakes</p>
             <p className="tag-details">9001 Like</p>
             <p className="overview-tag">Bread Day</p>
             <p className="tag-details">{prettyDate2(user.date_joined)}</p>
-            {/* <button className="social-button">+ Add Social Link</button>  */}
           </div>
         </div>
       </div>
