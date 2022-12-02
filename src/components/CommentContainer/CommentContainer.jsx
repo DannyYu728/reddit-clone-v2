@@ -9,7 +9,7 @@ function CommentContainer(props) {
   return (
     <div className="comment-info-container">
       <p className="comment-posted-by">
-            <span id="category-name">{comment.owner}</span> • <ReactTimeAgo date={comment.created_at} locale="en-US"/>
+            <span id="category-name">{comment.owner}</span> • just now
       </p>
       {comment.body.includes("<") ? (
         <div className="comment-body">{parse(comment.body)}</div>
