@@ -1,24 +1,27 @@
-import {useNavigate} from "react-router-dom";
-import {likePost} from "../../services/Posts.js";
-import {useAuthContext} from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
+import { likePost } from "../../services/Posts.js";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
 
 function PostContainer(props) {
-  const {post} = props;
-  const {user} = useAuthContext();
+  const { post } = props;
+  const { user } = useAuthContext();
 
   let navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate(`/post/${id}`, {state: post});
+    navigate(`/post/${id}`, { state: post });
   };
 
-  const like = async () => { 
-    const res = await likePost({ id: post.id });
-    console.log(post.likes)
-    console.log(res)
-    return res
+  const like = async () => {
+    if (post.likes.includes(user.id)) {
+      console.log("You cant unburnt a burnt toast");
+    } else {
+      const res = await likePost({ id: post.id });
+      navigate(`/post/${id}`);
+      return res;
+    }
   };
 
   if (!post) return <h1>Loading...</h1>;
@@ -28,12 +31,10 @@ function PostContainer(props) {
       <div className="vote-post-flexbox">
         <div className="vote-container">
           <button id="up-arrow" onClick={like}>
-          <img src={toastie} className="toastie"/>
+            <img src={toastie} className="toastie" />
           </button>
           {post.likes == undefined ? 0 : post.likes.length}
-          <p className="give-bread">
-            Bites
-          </p>
+          <p className="give-bread">Bites</p>
         </div>
 
         <div
