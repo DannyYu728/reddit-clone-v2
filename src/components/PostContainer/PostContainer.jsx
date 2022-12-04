@@ -14,13 +14,8 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { state: post });
   };
 
-  const unlike = async () => {
-    try {
-      const res = await unlikePost({ id: post.id });
-      console.log(res);
-    } catch (error) {
-      throw error;
-    }
+  const unlike =  () => {
+      const res =  unlikePost({ id: post.id });
     navigate(0);
   };
 
