@@ -1,6 +1,5 @@
 import "./Overview.css";
 import { useAuthContext } from "../../../hooks/useAuthContext";
-import { updateProfile } from "../../../services/user";
 import { useNavigate, Link } from "react-router-dom";
 
 function Overview({ toggle, theme }) {
@@ -14,15 +13,15 @@ function Overview({ toggle, theme }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      let file = e.target.uploadFile.files[0];
-      let formData = new FormData();
-      formData.append("file", file);
-      const res = await updateProfile(formData);
-      console.log(res);
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   let file = e.target.uploadFile.files[0];
+    //   let formData = new FormData();
+    //   formData.append("file", file);
+    //   const res = await updateProfile(formData);
+    //   console.log(res);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   if (!user) return <h1>YOU GOT TO JOIN THE CREW FIRST</h1>;
