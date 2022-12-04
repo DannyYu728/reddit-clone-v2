@@ -1,5 +1,4 @@
 import {useNavigate} from "react-router-dom";
-import {BsArrowUpSquare} from "react-icons/bs";
 import {likePost} from "../../services/Posts.js";
 import {useAuthContext} from "../../hooks/useAuthContext";
 import "./PostContainer.css";
