@@ -48,7 +48,7 @@ export const deletePost = async (id) => {
 export const likePost = async (id) => {
   try {
     const response = await api.patch(`api/likePost/`, id);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }
@@ -56,8 +56,8 @@ export const likePost = async (id) => {
 
 export const unlikePost = async (id) => {
   try {
-    const response = await api.delete(`api/unlikePost/`, id);
-    return response.data;
+    const response = await api.patch(`api/unlikePost/`, id);
+    return response;
   } catch (error) {
     throw error;
   }
