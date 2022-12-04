@@ -54,9 +54,9 @@ export const likePost = async (id) => {
   }
 };
 
-export const unLikePost = async (id) => {
+export const unlikePost = async (id) => {
   try {
-    const response = await api.patch(`api/UnlikePost/`, id);
+    const response = await api.delete(`api/unlikePost/`, id);
     return response.data;
   } catch (error) {
     throw error;

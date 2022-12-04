@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { likePost, unLikePost } from "../../services/Posts.js";
+import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
@@ -15,12 +15,12 @@ function PostContainer(props) {
   };
 
   const like = async () => {
-    if (post.likes.includes(user.id)) {
-      const res = await unLikePost({ id: post.id });
-      console.log("You cant unburnt a burnt toast");
+    if (!post.likes.includes(user.id)) {
+      const res = await likePost({ id: post.id });
+      console.log(res);
     } else {
-      const res = await likePost({ id: post.id }); 
-      console.log("Bite");
+      const res = await unlikePost({ id: post.id }); 
+      console.log(res);
     }
     navigate(0);
   };
