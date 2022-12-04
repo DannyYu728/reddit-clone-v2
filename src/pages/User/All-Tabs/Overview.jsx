@@ -2,8 +2,6 @@ import "./Overview.css";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { updateProfile } from "../../../services/user";
 import { useNavigate, Link } from "react-router-dom";
-// import avatar from "../../../assets/default.png"
-// import banner from "../../../assets/banner.png"
 
 function Overview({ toggle, theme }) {
   const { user } = useAuthContext();
@@ -37,10 +35,10 @@ function Overview({ toggle, theme }) {
           width: toggle === "Overview" ? "100%" : "50%",
         }}
       >
-        <img src="{banner}" alt={`user-banner`} className="banner" />
+        <img src={!user.banner ? "https://dy-reddit-v2.up.railway.app/static/banner.jpg" : user.banner} alt="Banner" className="banner" />
         <div className="overview-center">
           <div className="overview-center-left">
-            <img src="" alt="user avatar" className="avatar" />
+            <img src={!user.avatar ? "https://dy-reddit-v2.up.railway.app/static/default.png" : user.banner} alt="user avatar" className="avatar" />
             {user.username.toUpperCase()}
             <div className="overview-left-btn-container">
               <div className="profileBtn">Avatar</div>
