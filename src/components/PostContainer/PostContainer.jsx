@@ -30,7 +30,7 @@ function PostContainer(props) {
           <button id="up-arrow" onClick={like}>
           <img src={toastie} className="toastie"/>
           </button>
-          {post.likes}
+          {!post.likes ? 0 : post.likes.length}
           <p className="give-bread">
             Bites
           </p>
