@@ -19,7 +19,7 @@ function PostContainer(props) {
       console.log("You cant unburnt a burnt toast");
     } else {
       const res = await likePost({ id: post.id });
-      navigate(`/post/${post.id}`);
+      navigate(0);
       return res;
     }
   };
