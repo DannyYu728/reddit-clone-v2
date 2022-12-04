@@ -14,13 +14,22 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { state: post });
   };
 
+  const unlike = async () => {
+    try {
+      const res = await unlikePost({ id: post.id });
+      console.log(res);
+    } catch (error) {
+      throw error;
+    }
+    navigate(0);
+  };
+
   const like = async () => {
-    if (!post.likes.includes(user.id)) {
+    try {
       const res = await likePost({ id: post.id });
       console.log(res);
-    } else {
-      const res = await unlikePost({ id: post.id }); 
-      console.log(res);
+    } catch (error) {
+      throw error;
     }
     navigate(0);
   };
@@ -33,6 +42,9 @@ function PostContainer(props) {
         <div className="vote-container">
           <button id="up-arrow" onClick={like}>
             <img src={toastie} className="toastie" />
+          </button>
+          <button id="up-arrow" onClick={like}>
+            UNLIKE
           </button>
           {post.likes == undefined ? 0 : post.likes.length}
           <p className="give-bread">Bites</p>
