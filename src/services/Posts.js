@@ -54,14 +54,15 @@ export const likePost = async (id) => {
   }
 };
 
-export const unlikePost = async (id) => {
-  try {
-    const response = await api.patch(`api/unlikePost/`, id);
-    return response;
-  } catch (error) {
-    throw error;
-  }
+export const unlikePost = (id) => {
+  const promise = api.patch(`api/unlikePost/`, id);
+  promise
+    .then((res) => {
+      setTimeout(() => {
+        dispatch(successAction(res));
+      });
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
-
-
-
