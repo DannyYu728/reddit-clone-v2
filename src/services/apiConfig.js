@@ -14,32 +14,30 @@ const api = axios.create({
       : "https://dy-reddit-v2.up.railway.app/",
 });
 
-// if (token) {
-//   api.interceptors.request.use(
-//     async function (config) {
-//       config.headers["Authorization"] = await getToken();
-//       return config;
-//     },
-//     function (error) {
-//       console.log("Request error: ", error);
-//       return Promise.reject(error);
-//     }
-//   );
-// }
-
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      config.headers.Authorization = `JWT ${token}`;
+  api.interceptors.request.use(
+    async function (config) {
+      config.headers["Authorization"] = await getToken();
+      return config;
+    },
+    function (error) {
+      console.log("Request error: ", error);
+      return Promise.reject(error);
     }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+  );
+
+// api.interceptors.request.use(
+//   (config) => {
+//     const token = localStorage.getItem("token");
+
+//     if (token) {
+//       config.headers.Authorization = `JWT ${token}`;
+//     }
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   }
+// );
 
 
 export default api;
