@@ -17,8 +17,8 @@ function PostContainer(props) {
 
   const like = async () => {
     const res = await likePost({ id: post.id });
+    console.log(post.likes)
     return res
-
   };
 
   if (!post) return <h1>Loading...</h1>;
@@ -30,7 +30,7 @@ function PostContainer(props) {
           <button id="up-arrow" onClick={like}>
           <img src={toastie} className="toastie"/>
           </button>
-          {post.likes.length}
+          {post.likes}
           <p className="give-bread">
             Bites
           </p>
