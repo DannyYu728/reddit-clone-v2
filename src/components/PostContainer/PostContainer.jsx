@@ -18,13 +18,11 @@ function PostContainer(props) {
     if (post.likes.includes(user.id)) {
       const res = await unLikePost({ id: post.id });
       console.log("You cant unburnt a burnt toast");
-      navigate(0);
-      return res;
     } else {
-      const res = await likePost({ id: post.id });
-      navigate(0);
-      return res;
+      const res = await likePost({ id: post.id }); 
+      console.log("Bite");
     }
+    navigate(0);
   };
 
   if (!post) return <h1>Loading...</h1>;
