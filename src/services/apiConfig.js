@@ -10,8 +10,8 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://dy-reddit-v2.up.railway.app//"
-      : "https://dy-reddit-v2.up.railway.app//",
+      ? "https://dy-reddit-v2.up.railway.app/"
+      : "https://dy-reddit-v2.up.railway.app/",
 });
 
 // if (token) {
