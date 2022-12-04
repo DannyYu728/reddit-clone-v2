@@ -59,7 +59,7 @@ export const unlikePost = (id) => {
   promise
     .then((res) => {
       setTimeout(() => {
-        dispatch(successAction(res));
+        return res
       }, 1000);
     })
     .catch((error) => {
