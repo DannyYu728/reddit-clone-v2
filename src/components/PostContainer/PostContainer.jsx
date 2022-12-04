@@ -15,14 +15,14 @@ function PostContainer(props) {
   };
 
   const like = async () => {
-    if (!post.likes.includes(user.id)) {
-      const res = await likePost({ id: post.id });
-      console.log(res);
-    } else {
+    // if (!post.likes.includes(user.id)) {
+    //   const res = await likePost({ id: post.id });
+    //   console.log(res);
+    // } else {
       const res = await unlikePost({ id: post.id }); 
       console.log(res);
-    }
-    navigate(0);
+    // }
+    // navigate(0);
   };
 
   if (!post) return <h1>Loading...</h1>;
