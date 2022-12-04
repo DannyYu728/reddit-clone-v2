@@ -43,7 +43,7 @@ function PostContainer(props) {
           <button id="up-arrow" onClick={like}>
             <img src={toastie} className="toastie" />
           </button>
-          <button id="up-arrow" onClick={like}>
+          <button id="up-arrow" onClick={unlike}>
             UNLIKE
           </button>
           {post.likes == undefined ? 0 : post.likes.length}
