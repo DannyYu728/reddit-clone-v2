@@ -60,7 +60,7 @@ export const unlikePost = (id) => {
     .then((res) => {
       setTimeout(() => {
         return res
-      }, 1000);
+      },);
     })
     .catch((error) => {
       throw error;
