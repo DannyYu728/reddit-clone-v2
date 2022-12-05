@@ -18,14 +18,12 @@ function PostContainer(props) {
 
   const unlike = async () => {
     const res = await unlikePost({ id: post.id });
-    setLikes(post.likes.length)
     console.log(res)
   };
 
   const like = async () => {
     try {
       const res = await likePost({ id: post.id });
-      setLikes(post.likes.length)
       console.log(res);
     } catch (error) {
       throw error;
@@ -33,7 +31,7 @@ function PostContainer(props) {
   };
 
   useEffect(() => {
-    setLikes(post.likes.length)
+    post.likes == undefined ? setLikes(0) : setLikes(post.likes.length)
   }, [likes]);
 
 
