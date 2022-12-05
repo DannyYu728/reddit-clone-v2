@@ -37,13 +37,13 @@ function Aside({theme}) {
         })}
         {user && (
           <div className="aside-link-container">
-            <Link to="/posts/all" className={`aside-link aside-link-${theme}`}>
+            <Link to="/underconstruction" className={`aside-link aside-link-${theme}`}>
               <GiChewedHeart
                 size={24}
                 className={`aside-icon aside-icon-${theme}`}
               />
             </Link>
-            <Link to="/posts/all" className={`aside-link aside-link-${theme}`}>
+            <Link to="/underconstruction" className={`aside-link aside-link-${theme}`}>
               <p>Favorites</p>
             </Link>
           </div>
@@ -72,13 +72,13 @@ function Aside({theme}) {
           );
         })}
         <div className="aside-link-container">
-          <Link to="/posts/more" className={`aside-link aside-link-${theme}`}>
+          <Link to="/underconstruction" className={`aside-link aside-link-${theme}`}>
             <MdOutlineMoreHoriz
               size={25}
               className={`aside-icon aside-icon-${theme}`}
             />
           </Link>
-          <Link to="/posts/more" className={`aside-link aside-link-${theme}`}>
+          <Link to="/underconstruction" className={`aside-link aside-link-${theme}`}>
             <p>More Topics</p>
           </Link>
         </div>

@@ -53,44 +53,67 @@ function Ads() {
 
   return (
     <div className="ads-aside">
-      <aside>
+      <div>
         <div className="ads-container">
-          <p>ADVERTISEMENT</p>
+          <p className="ad-p">ADVERTISEMENT</p>
           <img className="ads" src={state} alt="" />
         </div>
         <div className="ads-container">
-          <p>ADVERTISEMENT</p>
+          <p className="ad-p">ADVERTISEMENT</p>
           <img className="ads" src={cycle} alt="" />
         </div>
         <div className="ads-container">
-          <p>ADVERTISEMENT</p>
+          <p className="ad-p">ADVERTISEMENT</p>
           <img className="ads" src={rotate} alt="" />
         </div>
-      </aside>
+      </div>
       <div className="reddit-inc">
         <div className="ad-links">
-          <a href="https://www.redditinc.com/policies/user-agreement">
+          <a
+            className="ad-links-a"
+            href="https://www.redditinc.com/policies/user-agreement"
+          >
             User Agreement
           </a>
-          <a href="https://www.reddit.com/policies/privacy-policy">
+          <a
+            className="ad-links-a"
+            href="https://www.reddit.com/policies/privacy-policy"
+          >
             Privacy Policy
           </a>
-          <a href="https://www.redditinc.com/policies/content-policy">
+          <a
+            className="ad-links-a"
+            href="https://www.redditinc.com/policies/content-policy"
+          >
             Content Policy
           </a>
-          <a href="#">Moderator Code of Conduct</a>
+          <a className="ad-links-a" href="#">
+            Moderator Code of Conduct
+          </a>
         </div>
-        <hr></hr>
+        <hr className="add-hr"></hr>
         <div className="ad-lang">
-          <a href="#">English</a>
-          <a href="#">Français</a>
-          <a href="#">Italiano</a>
-          <a href="#">Deutsch</a>
-          <a href="#">Español</a>
-          <a href="#">Portugués</a>
+          <a className="ad-links-a" href="#">
+            English
+          </a>
+          <a className="ad-links-a" href="#">
+            Français
+          </a>
+          <a className="ad-links-a" href="#">
+            Italiano
+          </a>
+          <a className="ad-links-a" href="#">
+            Deutsch
+          </a>
+          <a className="ad-links-a" href="#">
+            Español
+          </a>
+          <a className="ad-links-a" href="#">
+            Portugués
+          </a>
         </div>
         <hr></hr>
-      <p>Better-Reddit Inc © 2022. All rights reserved</p>
+        <p>Better-Reddit Inc © 2022. All rights reserved</p>
       </div>
       <div>
         <ScrollButton />

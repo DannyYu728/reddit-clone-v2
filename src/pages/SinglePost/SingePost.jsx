@@ -82,7 +82,7 @@ function Post() {
         <center>
           <PostContainer post={post} />
 
-          <div className="buttons">
+          {user && <div className="buttonsMore">
             <button onClick={showSpread} id="comment-button">
               Spread It
             </button>
@@ -96,7 +96,7 @@ function Post() {
                 </button>
               </div>
             )}
-          </div>
+          </div>}
           {sToggle && (
             <div>
               <TextEditor />

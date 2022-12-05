@@ -1,28 +1,34 @@
-import {useEffect, useRef} from "react";
-import {useNavigate, Link} from "react-router-dom";
-import {signOut} from "../../services/user.js";
-import {useAuthContext} from "../../hooks/useAuthContext";
-import {useSearchContext} from "../../hooks/useSearchContext";
-import {Navbar, Nav, NavDropdown, Form, Button} from "react-bootstrap";
-import {LinkContainer} from "react-router-bootstrap";
-import {RiAccountPinBoxLine} from "react-icons/ri";
-import {AiOutlineDown, AiOutlineLogout} from "react-icons/ai";
-import {FaRegUserCircle} from "react-icons/fa";
-import {HiOutlineChatAlt2} from "react-icons/hi";
-import {MdNotificationsNone} from "react-icons/md";
-import {BiMoon, BiSun} from "react-icons/bi";
-import {GrAdd} from "react-icons/gr";
+import { useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { signOut } from "../../services/user.js";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useSearchContext } from "../../hooks/useSearchContext";
+import { Navbar, Nav, NavDropdown, Form, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { RiAccountPinBoxLine } from "react-icons/ri";
+import { AiOutlineDown, AiOutlineLogout } from "react-icons/ai";
+import { FaRegUserCircle } from "react-icons/fa";
+import { HiOutlineChatAlt2 } from "react-icons/hi";
+import { MdNotificationsNone } from "react-icons/md";
+import { BiMoon, BiSun } from "react-icons/bi";
+import { GrAdd } from "react-icons/gr";
 import logo from "../../assets/logos/brand_logo.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Nav.css";
 
-function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
-  const {dispatch} = useAuthContext();
+function NavBar({ setShowChat, expanded, setExpanded, theme, setTheme }) {
+  const { dispatch } = useAuthContext();
   const queryRef = useRef();
-  const {searchDispatch} = useSearchContext();
-  const {user} = useAuthContext();
+  const { searchDispatch } = useSearchContext();
+  const { user } = useAuthContext();
   const navigate = useNavigate();
 
+  const construction = () => {
+    alert("Under Construction, Coming Soon");
+    setTimeout(() => {
+      setExpanded(false);
+    }, 50);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     searchDispatch({
@@ -46,8 +52,8 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
 
   const SignOut = () => {
     signOut();
-    dispatch({type: "LOGOUT"});
-    navigate("/", {replace: true});
+    dispatch({ type: "LOGOUT" });
+    navigate("/", { replace: true });
   };
 
   return (
@@ -65,7 +71,7 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
             }, 50)
           }
         >
-          <img src={logo} alt="that logo boiii" style={{height: 55}} />
+          <img src={logo} alt="that logo boiii" style={{ height: 55 }} />
         </Navbar.Brand>
       </LinkContainer>
 
@@ -119,16 +125,12 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
             <MdNotificationsNone
               size={20}
               className="nav-icon"
-              onClick={() =>
-                setTimeout(() => {
-                  setExpanded(false);
-                }, 50)
-              }
+              onClick={construction}
             />
 
             <LinkContainer
               to="/create-post"
-              style={{marginLeft: -5, marginRight: -5, marginTop: -3}}
+              style={{ marginLeft: -5, marginRight: -5, marginTop: -3 }}
             >
               <Nav.Link
                 onClick={() =>
@@ -140,7 +142,7 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
                 <GrAdd
                   size={18}
                   className="nav-icon"
-                  style={{marginBottom: -8}}
+                  style={{ marginBottom: -8 }}
                 />
               </Nav.Link>
             </LinkContainer>
@@ -237,11 +239,7 @@ function NavBar({setShowChat, expanded, setExpanded, theme, setTheme}) {
         <NavDropdown.Item
           as="button"
           className="dropdown-text"
-          onClick={() =>
-            setTimeout(() => {
-              setExpanded(false);
-            }, 50)
-          }
+          onClick={construction}
         >
           Settings
         </NavDropdown.Item>

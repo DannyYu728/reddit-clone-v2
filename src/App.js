@@ -40,6 +40,7 @@ function App() {
         <Route path="/posts/:category" element={<Posts />} />
         <Route path="/profile/" element={<Profile theme={theme} />} />
         <Route path="/changepassword/" element={<ChangePw />} />
+        <Route path="/underconstruction" element={<h1 className="constuct">Under Construction</h1>} />
       </Routes>
       {user &&
         showChat &&

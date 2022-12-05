@@ -219,19 +219,19 @@
   color: #DDB892;
   }
 
-  .buttons{
+  .buttonsMore{
     display: flex;
     align-items: center;
     justify-content: center;
   }
   @media screen and (max-width: 1200px) {
     .single-post-container {
-      width: 80vw;
+      width: 80%;
     }
 
   }
 
-  @media screen and (max-width: 800px) {
+  /* @media screen and (max-width: 800px) {
     .single-post-container {
       width: 60vw;
     }
@@ -241,6 +241,6 @@
     .single-post-container {
       width: 90vw;
     }
-  }
+  } */
 
 

@@ -26,7 +26,6 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { replace: true });
   };
 
-  console.log(post);
   if (!post) return <h1>Loading...</h1>;
 
   return (
@@ -51,13 +50,14 @@ function PostContainer(props) {
         >
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
-            {post.owner}
+            {post.owner}{" "}
             {post && post?.updated_at && <ReactTimeAgo date={post.updated_at} locale="en-US" />}
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
           <a href={post.link} target="_blank" className="post-link">
-            {post.link}
+            <img src={!post.thumbnail ? "https://dy-reddit-v2.up.railway.app/static/oven.png" : user.banner} alt="thumb" className="thumb" />
+            Link
           </a>
         </div>
       </div>
@@ -66,8 +66,6 @@ function PostContainer(props) {
           View the Spread
         </button>
       </div>
-
-      {/* <img src={post.link.thumbnail} /> */}
     </div>
   );
 }

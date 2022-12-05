@@ -40,9 +40,9 @@ function Overview({ toggle, theme }) {
             <img src={!user.avatar ? "https://dy-reddit-v2.up.railway.app/static/default.png" : user.banner} alt="user avatar" className="avatar" />
             {user.username.toUpperCase()}
             <div className="overview-left-btn-container">
-              <div className="profileBtn">Avatar</div>
+              {/* <div className="profileBtn">Avatar</div> */}
               <Link to="/changepassword/">
-                <div className="profileBtn">Password </div>
+                <div className="profileBtn">Change Password</div>
               </Link>
             </div>
           </div>

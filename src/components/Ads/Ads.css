@@ -35,7 +35,7 @@ margin-top: 5px;
 text-align: left;
 }
 
-a {
+.ad-links-a {
   text-decoration: none;
   color: black;
   font-size: small;
@@ -52,19 +52,19 @@ a {
 .ad-lang {
   border-top: 5px;
 }
-p {
+.ad-p {
   margin-left: 5px;
   text-align: left;
   font-size: x-small;
   text-align: left;
 }
- hr{
+ .ad-hr{
   border: 1px solid #7F5539;
   border-radius: 2px;
   margin: 5px;
  }
 
-@media screen and (max-width:1350px){
+@media screen and (max-width:1355px){
   .ads-aside{
     display: none;
   }
