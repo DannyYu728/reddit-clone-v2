@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -8,7 +7,6 @@ import toastie from "../../assets/9.png";
 function PostContainer(props) {
   const { post } = props;
   const { user } = useAuthContext();
-  const [likes, setLikes] = useState(0);
 
   let navigate = useNavigate();
 
@@ -24,14 +22,6 @@ function PostContainer(props) {
     const res = await likePost({ id: post.id });
   };
 
-  useEffect(() => {
-    if (!post) {
-      return 
-    } else {
-      setLikes(post.likes.length);
-    }
-  }, [post]);
-
   if (!post) return <h1>Loading...</h1>;
 
   return (
@@ -44,7 +34,7 @@ function PostContainer(props) {
           <button id="up-arrow" onClick={unlike}>
             UNLIKE
           </button>
-          {post.likes == undefined ? 0 : likes}
+          {post.likes == undefined ? 0 : post.likes.length}
           <p className="give-bread">Bites</p>
         </div>}
 
