@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import CommentContainer from "../../components/CommentContainer/CommentContainer.jsx";
-import { BsArrowUpSquare } from "react-icons/bs";
 import { getComments } from "../../services/Comment.js";
 import { getPost, deletePost, updatePost } from "../../services/Posts.js";
 import "./SinglePost.css";
@@ -9,7 +8,6 @@ import TextEditor from "../../components/TextEditor/TextEditor.jsx";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 import PostContainer from "../../components/PostContainer/PostContainer.jsx";
-import ReactTimeAgo from "react-time-ago";
 
 function Post() {
   const { user } = useAuthContext();

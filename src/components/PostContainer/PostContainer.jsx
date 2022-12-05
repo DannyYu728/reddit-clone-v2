@@ -3,6 +3,7 @@ import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
+import ReactTimeAgo from "react-time-ago";
 
 function PostContainer(props) {
   const { post } = props;
@@ -27,16 +28,18 @@ function PostContainer(props) {
   return (
     <div className="individual-post-container">
       <div className="vote-post-flexbox">
-        {user && <div className="vote-container">
-          <button id="up-arrow" onClick={like}>
-            <img src={toastie} className="toastie" />
-          </button>
-          <button id="up-arrow" onClick={unlike}>
-            UNLIKE
-          </button>
-          {post.likes == undefined ? 0 : post.likes.length}
-          <p className="give-bread">Bites</p>
-        </div>}
+        {user && (
+          <div className="vote-container">
+            <button id="up-arrow" onClick={like}>
+              <img src={toastie} className="toastie" />
+            </button>
+            <button id="up-arrow" onClick={unlike}>
+              UNLIKE
+            </button>
+            {post.likes == undefined ? 0 : post.likes.length}
+            <p className="give-bread">Bites</p>
+          </div>
+        )}
 
         <div
           className="post-info-container"
@@ -44,7 +47,8 @@ function PostContainer(props) {
         >
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
-            {post.owner} 69mins ago
+            {post.owner}
+            {post && <ReactTimeAgo date={post.created_at} locale="en-US" />}
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
