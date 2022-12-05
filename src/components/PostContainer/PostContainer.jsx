@@ -31,6 +31,8 @@ function PostContainer(props) {
   }
 
   if (!post) return <h1>Loading...</h1>;
+  if (!post.create_at) return <h1>Loading...</h1>;
+  if (!post.likes) return <h1>Loading...</h1>;
 
   return (
     <div className="individual-post-container">
