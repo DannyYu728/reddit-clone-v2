@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -8,6 +9,8 @@ import ReactTimeAgo from "react-time-ago";
 function PostContainer(props) {
   const { post } = props;
   const { user } = useAuthContext();
+  const { likes, setLikes } = useState(0)
+  const {time, setTime} = useState(null)
 
   let navigate = useNavigate();
 
@@ -17,11 +20,23 @@ function PostContainer(props) {
 
   const unlike = () => {
     const res = unlikePost({ id: post.id });
+    setLikes(likes - 1)
   };
 
   const like = async () => {
     const res = await likePost({ id: post.id });
+    setLikes(likes + 1)
   };
+
+  useEffect(() => {
+    if (post.likes != undefined) {
+      setLikes(post.likes.length)
+    }
+    if (post.create_at) {
+      setTime(post.create_at)
+    }
+  }, [likes]);
+
 
   if (!post) return <h1>Loading...</h1>;
 
@@ -36,7 +51,7 @@ function PostContainer(props) {
             <button id="up-arrow" onClick={unlike}>
               UNLIKE
             </button>
-            {post.likes == undefined ? 0 : post.likes.length}
+            {post.likes == undefined ? 0 : likes}
             <p className="give-bread">Bites</p>
           </div>
         )}
@@ -48,7 +63,7 @@ function PostContainer(props) {
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
             {post.owner}
-            {post && <ReactTimeAgo date={post.created_at} locale="en-US" />}
+            {post && <ReactTimeAgo date={time} locale="en-US" />}
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
