@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -31,6 +31,11 @@ function PostContainer(props) {
       throw error;
     }
   };
+
+  useEffect(() => {
+    setLikes(post.likes.length)
+  }, [likes]);
+
 
   if (!post) return <h1>Loading...</h1>;
 
