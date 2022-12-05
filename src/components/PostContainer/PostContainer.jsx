@@ -4,6 +4,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
 import baddie from "../../assets/8.png";
+import ReactTimeAgo from "react-time-ago";
 
 function PostContainer(props) {
   const { post } = props;
@@ -17,20 +18,15 @@ function PostContainer(props) {
 
   const unlike = (id) => {
     const res = unlikePost({ id: post.id });
-    // navigate(`/post/${id}`, { replace: true });
+    navigate(`/post/${id}`, { replace: true });
   };
 
   const like = async (id) => {
     const res = await likePost({ id: post.id });
-    // navigate(`/post/${id}`, { replace: true });
+    navigate(`/post/${id}`, { replace: true });
   };
 
-  function prettyDate2(time) {
-    let date = new Date(time);
-    let cake = date.toLocaleDateString();
-    return cake;
-  }
-
+  console.log(post.created_at);
   if (!post) return <h1>Loading...</h1>;
 
   return (
@@ -42,7 +38,7 @@ function PostContainer(props) {
               <img src={toastie} className="toastie" />
             </button>
             <button id="up-arrow" onClick={() => unlike(post.id)}>
-            <img src={baddie} className="toastie" />
+              <img src={baddie} className="toastie" />
             </button>
             {post.likes === undefined ? 0 : post.likes.length}
             <p className="give-bread">Bites</p>
@@ -56,7 +52,7 @@ function PostContainer(props) {
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
             {post.owner}
-            {prettyDate2(post.create_at)}
+            <ReactTimeAgo date={post.created_at} locale="en-US" />
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
