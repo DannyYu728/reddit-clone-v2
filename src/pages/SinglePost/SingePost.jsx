@@ -64,18 +64,14 @@ function Post() {
   };
 
   const fetchPost = async () => {
-    if (!location.state) {
       const res = await getPost(params.id);
       setPost(res);
-    } else {
-      setPost(location.state);
-    }
-  };
+    } 
 
   useEffect(() => {
     fetchPost();
     fetchComments();
-  }, [location]);
+  }, [post]);
   
   if (!post) return <h1>Loading...</h1>;
   if (!comments) return <h1>Loading...</h1>;
@@ -147,44 +143,3 @@ function Post() {
 
 export default Post;
 
-// <div className="vote-post-flexbox">
-// <div className="vote-container">
-//   <button id="up-arrow" onClick={like}>
-//     <BsArrowUpSquare />
-//   </button>
-//   {!post.likes == undefined ? post.likes.length : "999"}
-//   <h6 className="give-bread">Bites</h6>
-// </div>
-// <div className="post-info-container">
-//   <p className="posted-by">
-//     <span id="category-name">
-//       b/{!location.state ? post.category : location.state.category}
-//     </span>{" "}
-//     • Posted by{" "}
-//     {!location.state ? post.owner : location.state.owner}{" "}
-//     <ReactTimeAgo
-//       date={
-//         !location.state
-//           ? post.created_at
-//           : location.state.created_at
-//       }
-//       locale="en-US"
-//     />
-//   </p>
-//   <h3 className="new-post-title">
-//     {!location.state ? post.title : location.state.title}
-//   </h3>
-//   <br />
-//   <p className="new-post-body">
-//     {!location.state ? post.body : location.state.body}
-//   </p>
-//   <a
-//     href={!location.state ? post.link : location.state.link}
-//     target="_blank"
-//     className="post-link"
-//     rel="noreferrer"
-//   >
-//     {!location.state ? post.link : location.state.link}
-//   </a>
-// </div>
-// </div>
