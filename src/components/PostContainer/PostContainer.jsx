@@ -28,12 +28,15 @@ function PostContainer(props) {
     setLikes(likes + 1)
   };
 
+  function prettyDate2() {
+    let date = new Date(post.create_at);
+    let cake = date.toLocaleDateString();
+    setTime(cake)
+  }
+
   useEffect(() => {
     if (post.likes != undefined) {
       setLikes(post.likes.length)
-    }
-    if (post.create_at) {
-      setTime(post.create_at)
     }
   }, [likes]);
 
