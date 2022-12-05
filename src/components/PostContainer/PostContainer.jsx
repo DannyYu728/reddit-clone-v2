@@ -16,33 +16,28 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { state: post });
   };
 
-  const unlike = async () => {
-    const res = await unlikePost({ id: post.id });
-    setLikes(post.likes.length)
-    console.log(res)
+  const unlike = () => {
+    const res = unlikePost({ id: post.id });
   };
 
   const like = async () => {
-    try {
-      const res = await likePost({ id: post.id });
-      setLikes(post.likes.length)
-      console.log(res);
-    } catch (error) {
-      throw error;
-    }
+    const res = await likePost({ id: post.id });
   };
 
   useEffect(() => {
-    setLikes(post.likes.length)
+    if (!post) {
+      return 
+    } else {
+      setLikes(post.likes.length);
+    }
   }, [post]);
-
 
   if (!post) return <h1>Loading...</h1>;
 
   return (
     <div className="individual-post-container">
       <div className="vote-post-flexbox">
-        <div className="vote-container">
+        {user && <div className="vote-container">
           <button id="up-arrow" onClick={like}>
             <img src={toastie} className="toastie" />
           </button>
@@ -51,7 +46,7 @@ function PostContainer(props) {
           </button>
           {post.likes == undefined ? 0 : likes}
           <p className="give-bread">Bites</p>
-        </div>
+        </div>}
 
         <div
           className="post-info-container"
