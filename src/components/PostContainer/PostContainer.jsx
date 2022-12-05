@@ -17,12 +17,12 @@ function PostContainer(props) {
 
   const unlike = (id) => {
     const res = unlikePost({ id: post.id });
-    navigate(`/post/${id}`, { replace: true });
+    // navigate(`/post/${id}`, { replace: true });
   };
 
   const like = async (id) => {
     const res = await likePost({ id: post.id });
-    navigate(`/post/${id}`, { replace: true });
+    // navigate(`/post/${id}`, { replace: true });
   };
 
   function prettyDate2(time) {
