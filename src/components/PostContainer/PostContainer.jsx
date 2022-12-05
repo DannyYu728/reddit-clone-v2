@@ -3,6 +3,7 @@ import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
+import baddie from "../../assets/8.png";
 
 function PostContainer(props) {
   const { post } = props;
@@ -14,12 +15,12 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { state: post });
   };
 
-  const unlike = () => {
+  const unlike = (id) => {
     const res = unlikePost({ id: post.id });
     navigate(`/post/${id}`, { state: post });
   };
 
-  const like = async () => {
+  const like = async (id) => {
     const res = await likePost({ id: post.id });
     navigate(`/post/${id}`, { state: post });
   };
@@ -38,11 +39,11 @@ function PostContainer(props) {
       <div className="vote-post-flexbox">
         {user && (
           <div className="vote-container">
-            <button id="up-arrow" onClick={like}>
+            <button id="up-arrow" onClick={() => like(post.id)}>
               <img src={toastie} className="toastie" />
             </button>
-            <button id="up-arrow" onClick={unlike}>
-              UNLIKE
+            <button id="up-arrow" onClick={() => unlike(post.id)}>
+            <img src={baddie} className="toastie" />
             </button>
             {post.likes === undefined ? 0 : post.likes.length}
             <p className="give-bread">Bites</p>
