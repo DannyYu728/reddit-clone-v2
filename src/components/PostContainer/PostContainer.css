@@ -4,7 +4,7 @@
   border: 1px solid black;
   margin: 15px;
   padding: 10px 5px;
-  background-color: #DDB892;
+  background-color: #ddb892;
   width: 95%;
 }
 
@@ -17,77 +17,90 @@
   width: 2.5rem;
   height: 2.5rem;
 }
-  
-  .vote-post-flexbox {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .post-info-container {
-    margin: 0px 15px 15px 15px;
-  }
 
-  .post-info-container:hover {
-    cursor: pointer;
-  }
-  
-  #category-name {
-    font-weight: bold;
-    font-size: 13px;
-    color: black;
-  }
-  
-  .posted-by {
-    text-align: left;
-    color: grey;
-    font-size: 12px;
-  }
-  
-  .new-post-title {
-    text-align: left;
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 1.875rem;
-    margin-top: 5px;
-  }
-  
-  .new-post-body {
-    font-size: 15px;
-  }
+.vote-post-flexbox {
+  display: flex;
+  flex-direction: row;
+}
 
-  .post-link {
-    font-size: 12px;
-    color: lightskyblue;
-  }
+.post-info-container {
+  width: 50rem;
+  max-width: 100%;
+  margin: 0px 15px 15px 15px;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 0;
+  background-color: #7f5539;
+  color: #ddb892;
+}
 
-  .view-comments-flexbox {
-    display: flex;
-    justify-content: left;
-  }
+.post-info-container:hover {
+  cursor: pointer;
+}
 
-  .view-comments {
-    font-size: 13px;
-    border: none;
-    border-radius: 2px;
-    margin-left: 65px;
-    padding: 5px;
-    font-weight: bold;
-    font-size: 11px;
-    background-color: #7f5539;
-    color: #EDE0D4;
-  }
+#category-name {
+  font-weight: bold;
+  font-size: 13px;
+  color: #e6ccb2;
+}
 
-  .view-comments:hover {
-    background-color: #9C6644;
-    color: white;
-  }
-  
-  .vote-container{
-    margin: 10px;
-    max-width: 30px;
-    max-height: 400px;
-    color: black;
-  }
+.posted-by {
+  text-align: left;
+  color: #ede0d4;
+  font-size: 12px;
+}
 
+.new-post-title {
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.875rem;
+  margin-top: 5px;
+}
 
+.new-post-body {
+  text-align: left;
+  font-size: 15px;
+}
 
+.post-link-container {
+  width: 100%;
+  display: flex;
+}
+.post-link {
+  display: flex;
+  align-items: baseline;
+}
+
+.view-comments-flexbox {
+  display: flex;
+  justify-content: left;
+}
+
+.view-comments {
+  font-size: 13px;
+  border: none;
+  border-radius: 2px;
+  margin-left: 65px;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 11px;
+  background-color: #7f5539;
+  color: #ede0d4;
+}
+
+.view-comments:hover {
+  background-color: #9c6644;
+  color: white;
+}
+
+.vote-container {
+  margin: 10px;
+  max-width: 30px;
+  max-height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}

@@ -33,14 +33,15 @@ function PostContainer(props) {
       <div className="vote-post-flexbox">
         {user && (
           <div className="vote-container">
-            {post && post.likes && !post.likes.includes(user.id) ?
-            <button id="up-arrow" onClick={() => like(post.id)}>
-              <img src={toastie} className="toastie" />
-            </button> :
-            <button id="up-arrow" onClick={() => unlike(post.id)}>
-              <img src={baddie} className="toastie" />
-            </button>
-            }
+            {post && post.likes && !post.likes.includes(user.id) ? (
+              <button id="up-arrow" onClick={() => like(post.id)}>
+                <img src={toastie} className="toastie" />
+              </button>
+            ) : (
+              <button id="up-arrow" onClick={() => unlike(post.id)}>
+                <img src={baddie} className="toastie" />
+              </button>
+            )}
             {post.likes === undefined ? 0 : post.likes.length}
             <p className="give-bread">Bites</p>
           </div>
@@ -53,14 +54,26 @@ function PostContainer(props) {
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
             {post.owner}{" "}
-            {post && post?.updated_at && <ReactTimeAgo date={post.updated_at} locale="en-US" />}
+            {post && post?.updated_at && (
+              <ReactTimeAgo date={post.updated_at} locale="en-US" />
+            )}
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
-          <a href={post.link} target="_blank" className="post-link">
-            <img src={!post.thumbnail ? "https://dy-reddit-v2.up.railway.app/static/oven.png" : user.banner} alt="thumb" className="thumb" />
-            Link
-          </a>
+          <div className="post-link-container">
+            <a href={post.link} target="_blank" className="post-link">
+              <img
+                src={
+                  !post.thumbnail
+                    ? "https://dy-reddit-v2.up.railway.app/static/oven.png"
+                    : user.banner
+                }
+                alt="thumb"
+                className="thumb"
+              />
+              <p className="post-link-link">Link</p>
+            </a>
+          </div>
         </div>
       </div>
       <div className="view-comments-flexbox">
