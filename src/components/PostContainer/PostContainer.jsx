@@ -9,8 +9,8 @@ import ReactTimeAgo from "react-time-ago";
 function PostContainer(props) {
   const { post } = props;
   const { user } = useAuthContext();
-  const { likes, setLikes } = useState(0)
-  const {time, setTime} = useState(null)
+  const { likes, setLikes } = useState(0);
+  const { time, setTime } = useState(null);
 
   let navigate = useNavigate();
 
@@ -20,26 +20,29 @@ function PostContainer(props) {
 
   const unlike = () => {
     const res = unlikePost({ id: post.id });
-    setLikes(likes - 1)
+    setLikes(likes - 1);
   };
 
   const like = async () => {
     const res = await likePost({ id: post.id });
-    setLikes(likes + 1)
+    setLikes(likes + 1);
   };
 
   function prettyDate2() {
     let date = new Date(post.create_at);
     let cake = date.toLocaleDateString();
-    setTime(cake)
+    setTime(cake);
   }
 
   useEffect(() => {
-    if (post.likes != undefined) {
-      setLikes(post.likes.length)
-    }
+    const likie = () => {
+      if (post.likes != undefined) {
+        setLikes(post.likes.length);
+      }
+    };
+    likie();
+    prettyDate2();
   }, [likes]);
-
 
   if (!post) return <h1>Loading...</h1>;
 
