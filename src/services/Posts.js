@@ -54,15 +54,26 @@ export const likePost = async (id) => {
   }
 };
 
-export const unlikePost = (id) => {
-  const promise = api.patch(`api/unlikePost/`, id);
-  promise
-    .then((res) => {
-      setTimeout(() => {
-        return res
-      }, 1000);
-    })
-    .catch((error) => {
-      throw error;
-    });
+export const unlikePost = async (id) => {
+  try {
+    const response = await api.patch(`api/likePost/`, id);
+    setTimeout(() => {
+      return response
+    }, 1000);
+  } catch (error) {
+    throw error;
+  }
 };
+
+// export const unlikePost = (id) => {
+//   const promise = api.patch(`api/unlikePost/`, id);
+//   promise
+//     .then((res) => {
+//       setTimeout(() => {
+//         return res
+//       }, 1000);
+//     })
+//     .catch((error) => {
+//       throw error;
+//     });
+// };
