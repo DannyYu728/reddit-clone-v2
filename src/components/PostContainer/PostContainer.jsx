@@ -33,12 +33,14 @@ function PostContainer(props) {
       <div className="vote-post-flexbox">
         {user && (
           <div className="vote-container">
+            {!post.likes.includes(user.id) ?
             <button id="up-arrow" onClick={() => like(post.id)}>
               <img src={toastie} className="toastie" />
-            </button>
+            </button> :
             <button id="up-arrow" onClick={() => unlike(post.id)}>
               <img src={baddie} className="toastie" />
             </button>
+            }
             {post.likes === undefined ? 0 : post.likes.length}
             <p className="give-bread">Bites</p>
           </div>
