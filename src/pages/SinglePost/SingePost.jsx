@@ -51,7 +51,7 @@ function Post() {
         alert("You can't touch this");
       } else {
         const id = post.id;
-        navigate(`/post/${id}`, { state: post });
+        navigate(`/post/${id}`, { replace: true });
       }
     } catch (error) {
       console.error(error);
@@ -71,7 +71,7 @@ function Post() {
   useEffect(() => {
     fetchPost();
     fetchComments();
-  }, [post]);
+  }, [location]);
   
   if (!post) return <h1>Loading...</h1>;
   if (!comments) return <h1>Loading...</h1>;

@@ -12,17 +12,17 @@ function PostContainer(props) {
   let navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate(`/post/${id}`, { state: post });
+    navigate(`/post/${id}`, { replace: true });
   };
 
   const unlike = (id) => {
     const res = unlikePost({ id: post.id });
-    navigate(`/post/${id}`, { state: post });
+    navigate(`/post/${id}`, { replace: true });
   };
 
   const like = async (id) => {
     const res = await likePost({ id: post.id });
-    navigate(`/post/${id}`, { state: post });
+    navigate(`/post/${id}`, { replace: true });
   };
 
   function prettyDate2(time) {
@@ -31,7 +31,6 @@ function PostContainer(props) {
     return cake;
   }
 
-  console.log(post)
   if (!post) return <h1>Loading...</h1>;
 
   return (
