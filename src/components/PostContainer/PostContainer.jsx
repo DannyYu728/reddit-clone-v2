@@ -16,10 +16,6 @@ function PostContainer(props) {
     navigate(`/post/${id}`, { state: post });
   };
 
-  const likie = useMemo(() => {
-    return likes;
-  }, [post]);
-
   const unlike = async () => {
     const res = await unlikePost({ id: post.id });
     setLikes(post.likes.length)
@@ -48,7 +44,7 @@ function PostContainer(props) {
           <button id="up-arrow" onClick={unlike}>
             UNLIKE
           </button>
-          {post.likes == undefined ? 0 : likie}
+          {post.likes == undefined ? 0 : likes}
           <p className="give-bread">Bites</p>
         </div>
 
