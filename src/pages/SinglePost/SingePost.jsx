@@ -90,7 +90,7 @@ function Post() {
             <button onClick={showSpread} id="comment-button">
               Spread It
             </button>
-            {user && user.username == post.owner && (
+            {user && user.username === post.owner && (
               <div>
                 <button id="edit-button" onClick={showEdit}>
                   ReBake It

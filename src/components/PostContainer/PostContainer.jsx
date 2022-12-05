@@ -4,7 +4,6 @@ import { likePost, unlikePost } from "../../services/Posts.js";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./PostContainer.css";
 import toastie from "../../assets/9.png";
-import ReactTimeAgo from "react-time-ago";
 
 function PostContainer(props) {
   const { post } = props;
@@ -34,12 +33,9 @@ function PostContainer(props) {
   }
 
   useEffect(() => {
-    const likie = () => {
-      if (post.likes != undefined) {
-        setLikes(post.likes.length);
-      }
-    };
-    likie();
+    if (post.likes !== undefined) {
+      setLikes(post.likes.length);
+    }
   }, [likes]);
 
   if (!post) return <h1>Loading...</h1>;
@@ -55,7 +51,7 @@ function PostContainer(props) {
             <button id="up-arrow" onClick={unlike}>
               UNLIKE
             </button>
-            {post.likes == undefined ? 0 : likes}
+            {post.likes === undefined ? 0 : likes}
             <p className="give-bread">Bites</p>
           </div>
         )}
