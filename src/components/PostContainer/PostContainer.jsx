@@ -34,7 +34,7 @@ function PostContainer(props) {
 
   useEffect(() => {
     setLikes(post.likes.length)
-  }, [res]);
+  }, [post]);
 
 
   if (!post) return <h1>Loading...</h1>;
