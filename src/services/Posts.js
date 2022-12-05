@@ -59,7 +59,7 @@ export const unlikePost = async (id) => {
     const response = await api.patch(`api/unlikePost/`, id);
     setTimeout(() => {
       return response
-    }, 1000);
+    }, 1500);
   } catch (error) {
     throw error;
   }
