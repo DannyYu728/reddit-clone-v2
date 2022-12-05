@@ -10,7 +10,6 @@ function PostContainer(props) {
   const { post } = props;
   const { user } = useAuthContext();
   const { likes, setLikes } = useState(0);
-  const { time, setTime } = useState(null);
 
   let navigate = useNavigate();
 
@@ -28,10 +27,10 @@ function PostContainer(props) {
     setLikes(likes + 1);
   };
 
-  function prettyDate2() {
-    let date = new Date(post.create_at);
+  function prettyDate2(time) {
+    let date = new Date(time);
     let cake = date.toLocaleDateString();
-    setTime(cake);
+    return cake;
   }
 
   useEffect(() => {
@@ -41,7 +40,6 @@ function PostContainer(props) {
       }
     };
     likie();
-    prettyDate2();
   }, [likes]);
 
   if (!post) return <h1>Loading...</h1>;
@@ -69,7 +67,7 @@ function PostContainer(props) {
           <p className="posted-by">
             <span id="category-name">b/{post.category}</span> • Baked by{" "}
             {post.owner}
-            {post && <ReactTimeAgo date={time} locale="en-US" />}
+            {prettyDate2(post.create_at)}
           </p>
           <h3 className="new-post-title">{post.title}</h3>
           <p className="new-post-body">{post.body}</p>
