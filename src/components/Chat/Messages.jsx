@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function Messages({
   currentRoom,
@@ -9,6 +10,7 @@ function Messages({
   textContainer,
 }) {
   const [msg, setMsg] = useState("");
+  const { user } = useAuthContext();
 
   useEffect(() => {
     textContainer.current.scrollTop = textContainer.current.scrollHeight + 100;
@@ -20,7 +22,7 @@ function Messages({
         {currentRoom.messages.map((msg, i) => {
           return Array.isArray(msg) ? (
             <p key={i} className="sent-from-me">
-              {msg[0]}
+              {user.username}: {msg[0]}
             </p>
           ) : (
             <p key={i}>{msg}</p>
