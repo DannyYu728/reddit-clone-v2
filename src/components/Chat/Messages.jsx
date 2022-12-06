@@ -8,6 +8,7 @@ function Messages({
   setToggleChat,
   setShowChat,
   textContainer,
+  showUsers
 }) {
   const [msg, setMsg] = useState("");
   const { user } = useAuthContext();
@@ -15,7 +16,6 @@ function Messages({
   useEffect(() => {
     textContainer.current.scrollTop = textContainer.current.scrollHeight + 100;
   }, [currentRoom]);
-
   return (
     <div className="messages-container">
       <div className="messages-text-container" ref={textContainer}>
@@ -25,7 +25,7 @@ function Messages({
               {user.username}: {msg[0]}
             </p>
           ) : (
-            <p key={i}>{msg}</p>
+              <p key={i}>{showUsers[0].username}: {msg}</p>
           );
         })}
       </div>

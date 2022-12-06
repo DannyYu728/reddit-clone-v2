@@ -184,6 +184,7 @@ function Chat({ setToggleChat, setShowChat }) {
             setToggleChat={setToggleChat}
             setShowChat={setShowChat}
             textContainer={textContainer}
+            showUsers={showUsers}
           />
         )}
         {!currentRoom && (
