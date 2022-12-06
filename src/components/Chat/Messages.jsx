@@ -25,7 +25,7 @@ function Messages({
               {user.username}: {msg[0]}
             </p>
           ) : (
-              <p key={i}>{showUsers[0].username}: {msg}</p>
+              <p key={i}> {msg}</p>
           );
         })}
       </div>
