@@ -30,7 +30,7 @@ const Signup = () => {
     } else {
       try {
         const form = {
-          username: usernameRef.current.value,
+          username: usernameRef.current.value.toLowerCase(),
           password: passwordRef.current.value,
         };
         const user = await signUp(form);
